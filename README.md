@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pet Surprise - Presente Personalizado para Pets
 
-## Getting Started
+Uma plataforma para criar presentes personalizados para donos de pets, gerando páginas exclusivas com QR Code.
 
-First, run the development server:
+## Tecnologias Utilizadas
+
+- Next.js 13
+- TypeScript
+- Tailwind CSS
+- Firebase
+- Stripe
+- AWS SES
+- Framer Motion
+
+## Pré-requisitos
+
+- Node.js 18.x ou superior
+- NPM ou Yarn
+- Conta no Firebase
+- Conta no Stripe
+- Conta na AWS
+
+## Configuração
+
+1. Clone o repositório:
+```bash
+git clone [url-do-repositorio]
+cd pet-surprise
+```
+
+2. Instale as dependências:
+```bash
+npm install
+# ou
+yarn install
+```
+
+3. Configure as variáveis de ambiente:
+- Copie o arquivo `.env.local.example` para `.env.local`
+- Preencha as variáveis com suas credenciais:
+  - Firebase
+  - Stripe
+  - AWS SES
+
+4. Configure o Firebase:
+- Crie um novo projeto no Firebase Console
+- Ative o Firestore Database
+- Ative o Storage
+- Copie as credenciais para o arquivo `.env.local`
+
+5. Configure o Stripe:
+- Crie uma conta no Stripe
+- Obtenha as chaves de API
+- Adicione as chaves ao arquivo `.env.local`
+
+6. Configure o AWS SES:
+- Configure sua conta AWS
+- Verifique os domínios de e-mail
+- Adicione as credenciais ao arquivo `.env.local`
+
+## Desenvolvimento
+
+Para iniciar o servidor de desenvolvimento:
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse [http://localhost:3000](http://localhost:3000) no seu navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estrutura do Projeto
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+pet-surprise/
+├── app/
+│   ├── components/
+│   │   ├── Hero.tsx
+│   │   ├── Features.tsx
+│   │   ├── HowItWorks.tsx
+│   │   └── PricingSection.tsx
+│   ├── firebase.ts
+│   └── page.tsx
+├── public/
+├── styles/
+└── ...
+```
 
-## Learn More
+## Deploy
 
-To learn more about Next.js, take a look at the following resources:
+O projeto está configurado para deploy na Vercel. Para fazer o deploy:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Crie uma conta na Vercel
+2. Conecte seu repositório
+3. Configure as variáveis de ambiente na Vercel
+4. Deploy!
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Contribuição
 
-## Deploy on Vercel
+1. Faça o fork do projeto
+2. Crie sua feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit suas mudanças (`git commit -m 'Add some amazing feature'`)
+4. Push para a branch (`git push origin feature/amazing-feature`)
+5. Abra um Pull Request
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Licença
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
