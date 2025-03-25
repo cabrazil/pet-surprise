@@ -5,7 +5,8 @@ export interface PetInfo {
   idade: number;
   dataVacinacao: string;
   fotos: string[];
-  caracteristicasRaca?: RacaCaracteristicas;
+  caracteristicasRaca?: RacaCaracteristicas | null;
+  mensagem: string;
 }
 
 export interface RacaCaracteristicas {

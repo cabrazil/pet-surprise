@@ -1,5 +1,34 @@
+'use client';
+
 import { FaPaw, FaQrcode, FaCamera, FaHeart } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+
+interface FeatureCardProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  index: number;
+}
+
+const FeatureCard = ({ icon, title, description, index }: FeatureCardProps) => (
+  <motion.div
+    key={index}
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay: index * 0.1 }}
+    className="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+  >
+    <div className="text-purple-600 mb-4">
+      {icon}
+    </div>
+    <h3 className="text-xl font-semibold mb-2 text-gray-800">
+      {title}
+    </h3>
+    <p className="text-gray-600">
+      {description}
+    </p>
+  </motion.div>
+);
 
 const features = [
   {
@@ -33,23 +62,13 @@ export default function Features() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
-            <motion.div
+            <FeatureCard 
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow"
-            >
-              <div className="text-purple-600 mb-4">
-                {feature.icon}
-              </div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">
-                {feature.title}
-              </h3>
-              <p className="text-gray-600">
-                {feature.description}
-              </p>
-            </motion.div>
+              icon={feature.icon}
+              title={feature.title}
+              description={feature.description}
+              index={index}
+            />
           ))}
         </div>
       </div>

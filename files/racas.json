@@ -1,0 +1,49 @@
+{
+  "racas": [
+    {
+      "nome": "Labrador Retriever",
+      "temperamento": "Amigavel, Brincalhao, Leal",
+      "tamanhoMedio": "Grande",
+      "expectativaVida": "10 a 12 anos",
+      "nivelEnergia": 5,
+      "necessidadeExercicio": 4,
+      "facilidadeTreinamento": 5,
+      "caracteristicasEspeciais": [
+        "Otimo com criancas",
+        "Precisa de exercicio regular",
+        "Adora nadar",
+        "Excelente cao-guia"
+      ]
+    },
+    {
+      "nome": "Golden Retriever",
+      "temperamento": "Inteligente, Gentil, Confiavel",
+      "tamanhoMedio": "Grande",
+      "expectativaVida": "10 a 12 anos",
+      "nivelEnergia": 4,
+      "necessidadeExercicio": 4,
+      "facilidadeTreinamento": 5,
+      "caracteristicasEspeciais": [
+        "Excelente com familias",
+        "Otimo para terapia",
+        "Pelagem dupla que requer escovacao regular",
+        "Muito sociavel"
+      ]
+    },
+    {
+      "nome": "Poodle",
+      "temperamento": "Inteligente, Ativo, Elegante",
+      "tamanhoMedio": "Varia",
+      "expectativaVida": "12 a 15 anos",
+      "nivelEnergia": 4,
+      "necessidadeExercicio": 3,
+      "facilidadeTreinamento": 5,
+      "caracteristicasEspeciais": [
+        "Nao solta pelo",
+        "Muito inteligente",
+        "Requer tosa regular",
+        "Otimo para pessoas alergicas"
+      ]
+    }
+  ]
+} 

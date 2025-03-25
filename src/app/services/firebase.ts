@@ -1,25 +1,29 @@
 import { db } from '../firebase';
 import { collection, addDoc, getDocs, doc, getDoc, query, where } from 'firebase/firestore';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { PetInfo, RacaCaracteristicas } from '../types';
-import fs from 'fs/promises';
-import path from 'path';
+
+const storage = getStorage();
 
 export const uploadFoto = async (file: File, petId: string): Promise<string> => {
   try {
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-    
-    // Criar pasta para o pet se não existir
-    const petDir = path.join(process.cwd(), 'public', 'assets', 'pets', petId);
-    await fs.mkdir(petDir, { recursive: true });
-    
-    // Salvar arquivo
+    // Criar referência para o arquivo no Storage
     const fileName = `${Date.now()}-${file.name}`;
-    const filePath = path.join(petDir, fileName);
-    await fs.writeFile(filePath, buffer);
+    const storageRef = ref(storage, `pets/${petId}/${fileName}`);
     
-    // Retornar URL relativa para acesso via web
-    return `/assets/pets/${petId}/${fileName}`;
+    // Upload do arquivo com metadata
+    const metadata = {
+      contentType: file.type,
+      customMetadata: {
+        'Access-Control-Allow-Origin': '*'
+      }
+    };
+    
+    await uploadBytes(storageRef, file, metadata);
+    
+    // Obter URL de download
+    const downloadURL = await getDownloadURL(storageRef);
+    return downloadURL;
   } catch (error) {
     console.error('Erro ao salvar foto:', error);
     throw error;

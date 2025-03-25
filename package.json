@@ -2,17 +2,25 @@
   "name": "pet-surprise",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "popular-racas": "NODE_OPTIONS='--loader ts-node/esm' node --experimental-specifier-resolution=node scripts/popularRacas.ts",
+    "test-firebase": "NODE_OPTIONS='--loader ts-node/esm' node --experimental-specifier-resolution=node scripts/testFirebase.ts",
+    "load-racas": "NODE_OPTIONS='--loader ts-node/esm' node --experimental-specifier-resolution=node scripts/loadRacas.ts"
   },
   "dependencies": {
     "@aws-sdk/client-ses": "^3.772.0",
+    "@firebase/app": "^0.11.3",
+    "@firebase/firestore": "^4.7.10",
+    "@firebase/util": "^1.11.0",
     "@headlessui/react": "^2.2.0",
     "@stripe/stripe-js": "^6.1.0",
     "@types/qrcode": "^1.5.5",
+    "dotenv": "^16.4.7",
     "firebase": "^11.5.0",
     "framer-motion": "^12.5.0",
     "next": "15.2.3",
@@ -31,6 +39,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.2.3",
     "tailwindcss": "^4",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   }
 }
